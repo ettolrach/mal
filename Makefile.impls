@@ -33,7 +33,7 @@ wasm_MODE = wasmtime
 #
 
 # Uncomment this line and change "rust" do whatever language you're using.
-# IMPLS = rust
+IMPLS = rust
 
 step5_EXCLUDES += bash        # never completes at 10,000
 step5_EXCLUDES += basic       # too slow, and limited to ints of 2^16
@@ -177,6 +177,7 @@ rpython_STEP_TO_PROG =       impls/rpython/$($(1))
 ruby_STEP_TO_PROG =          impls/ruby/$($(1)).rb
 ruby.2_STEP_TO_PROG =        impls/ruby.2/$($(1)).rb
 rust_STEP_TO_PROG =          impls/rust/target/release/$($(1))
+STEP_TO_PROG =               impls/rust/target/release/$($(1))
 scala_STEP_TO_PROG =         impls/scala/target/scala-2.11/classes/$($(1)).class
 scheme_STEP_TO_PROG =        $(scheme_STEP_TO_PROG_$(scheme_MODE))
 skew_STEP_TO_PROG =          impls/skew/$($(1)).js

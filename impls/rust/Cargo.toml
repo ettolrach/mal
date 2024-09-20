@@ -1,0 +1,22 @@
+[package]
+name = "rust"
+version = "0.1.0"
+edition = "2021"
+
+[lints.clippy]
+pedantic = "warn"
+suspicious = "warn"
+complexity = "warn"
+perf = "warn"
+style = "warn"
+
+[dependencies]
+regex = "1.10.6"
+
+[[bin]]
+name = "step0_repl"
+path = "step0_repl.rs"
+
+[[bin]]
+name = "step1_read_print"
+path = "step1_read_print.rs"
