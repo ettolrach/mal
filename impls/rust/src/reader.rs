@@ -2,7 +2,7 @@ use std::sync::LazyLock;
 
 use crate::types::{Mal, MalList};
 
-use regex::{Captures, Regex};
+use regex::Regex;
 
 /// A token, represented using a [`String`].
 /// 
@@ -71,15 +71,14 @@ fn read_list(reader: &mut Reader) -> MalList {
 
 fn read_form(reader: &mut Reader) -> Mal {
     let token = reader.peek().expect("Did not expect EOF here!");
-    #[expect(clippy::match_on_vec_items)]
     match token.chars().next().unwrap() {
         '(' => Mal::List(read_list(reader)),
         _ => read_atom(reader),
     }
 }
 
+#[must_use]
 pub fn read_str(s: &str) -> Mal {
     let mut reader = Reader::new(tokenise(s));
     read_form(&mut reader)
 }
-
